@@ -12,7 +12,7 @@
 
     extraConfig = ''
       local act = wezterm.action
-      local font = "MonoLisa"
+      local font = "CartographCF Nerd Font"
 
       local config = {}
 

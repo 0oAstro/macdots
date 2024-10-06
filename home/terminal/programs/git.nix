@@ -4,7 +4,7 @@
   ...
 }: let
   cfg = config.programs.git;
-  # key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOq9Gew1rgfdIyuriJ/Ne0B8FE1s8O/U2ajErVQLUDu9 mihai@io";
+  key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPXANO4l9/bWShWkJOKzreP+PyDNPQlTWrGVXapRoROF shaurya@shadowfax";
 in {
   home.packages = [pkgs.gh];
 
@@ -45,27 +45,27 @@ in {
       oops = "checkout --";
     };
 
-    ignores = ["*~" "*.swp" "*result*" ".direnv" "node_modules"];
+    ignores = ["*~" "*.swp" "*result*" ".direnv" "node_modules" "*.bin"];
 
     signing = {
       key = "${config.home.homeDirectory}/.ssh/id_ed25519";
       signByDefault = true;
     };
 
-    # extraConfig = {
-    #   gpg = {
-    #     format = "ssh";
-    #     ssh.allowedSignersFile = config.home.homeDirectory + "/" + config.xdg.configFile."git/allowed_signers".target;
-    #   };
-
-    #   pull.rebase = true;
-    # };
+    extraConfig = {
+      gpg = {
+        format = "ssh";
+        ssh.allowedSignersFile = config.home.homeDirectory + "/" + config.xdg.configFile."git/allowed_signers".target;
+      };
+      
+      pull.rebase = true;
+    };
 
     userEmail = "ee1240486@iitd.ac.in";
     userName = "Shaurya Pratap Singh (Astro)";
   };
 
-  # xdg.configFile."git/allowed_signers".text = ''
-  #   ${cfg.userEmail} namespaces="git" ${key}
-  # '';
+  xdg.configFile."git/allowed_signers".text = ''
+    ${cfg.userEmail} namespaces="git" ${key}
+  '';
 }

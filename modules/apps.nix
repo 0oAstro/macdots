@@ -53,7 +53,6 @@
       "kitty"
       "maccy"
       "maestral"
-      "microsoft-teams@classic"
       "notion"
       "notion-calendar"
       "protonvpn"
@@ -72,7 +71,6 @@
         "Microsoft Word" = 462054704;
         "Microsoft Excel" = 462058435;
         "Microsoft PowerPoint" = 462062816;
-        OneDrive = 823766827;
         "DaVinci Resolve" = 571213070;
         Bitwarden = 1352778147;
     };
